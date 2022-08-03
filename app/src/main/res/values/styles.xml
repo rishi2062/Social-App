@@ -23,4 +23,11 @@
         <item name="errorIconDrawable">@drawable/ic_error</item>
         <item name="helperTextTextAppearance">@style/TextAppearance.MaterialComponents.Subtitle1</item>
     </style>
+
+    <style name = "NoActionBar" parent = "Theme.Material3.DayNight.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name = "windowActionBar">false</item>
+        <item name = "android:windowFullscreen">true</item>
+        <item name = "android:windowContentOverlay">@null</item>
+    </style>
 </resources>
