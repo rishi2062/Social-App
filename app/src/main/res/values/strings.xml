@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Social</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rishi">Hello Rishi</string>
+    <string name="todo">TODO</string>
+    <string name="what_you_want_to_do">What you want to do?</string>
+    <string name="post">POST</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="google_login">google login</string>
+    <string name="user_image">user image</string>
+    <string name="like">like</string>
+</resources>
