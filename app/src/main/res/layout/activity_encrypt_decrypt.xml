@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EncryptDecrypt">
+
+    <EditText
+        android:id="@+id/giveText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:hint="Enter Text to be Encrypted"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@id/outText"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/encrypt"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:stateListAnimator="@anim/nav_default_pop_exit_anim"
+        android:backgroundTint="#123456"
+        app:cornerRadius="20dp"
+        android:textStyle="bold"
+        android:text="Encrypt"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/giveText"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/decrypt"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:stateListAnimator="@anim/nav_default_pop_exit_anim"
+        android:backgroundTint="#123456"
+        app:cornerRadius="20dp"
+        android:textStyle="bold"
+        android:text="Decrypt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.697"
+        app:layout_constraintStart_toEndOf="@+id/encrypt"
+        app:layout_constraintTop_toBottomOf="@+id/giveText"/>
+<!--    <Button-->
+<!--        android:id="@+id/encrypt"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:text="Encrypt"-->
+<!--        -->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/giveText"-->
+<!--       />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/decrypt"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Decrypt"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.697"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/encrypt"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/giveText" />-->
+
+    <EditText
+        android:id="@+id/outText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/copy"
+        android:hint="Result"
+        android:inputType="textMultiLine"
+        android:padding="20dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/copy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Copy"
+        android:textColor="#ffffff"
+        android:stateListAnimator="@anim/nav_default_pop_exit_anim"
+        android:backgroundTint="#123456"
+        app:cornerRadius="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/giveText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="388dp"
+        android:layout_margin="10dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

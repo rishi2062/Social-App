@@ -1,5 +1,6 @@
 package com.example.social.model.daos
 
+import android.util.Log
 import com.example.social.model.Post
 import com.example.social.model.User
 import com.google.android.gms.tasks.Task
@@ -13,19 +14,24 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
 class PostDao {
-    private val db = FirebaseFirestore.getInstance()
+     private val db = FirebaseFirestore.getInstance()
      val postCollection = db.collection("Post")
     private val auth = Firebase.auth
      @OptIn(DelicateCoroutinesApi::class)
      fun addPost(text : String)
      {
-         val currentUSerId = auth.currentUser!!.uid
-         GlobalScope.launch {
-             val userDao = UserDao()
-             val user = userDao.getUserById(currentUSerId).await().toObject(User::class.java)!! // await will help the code to complete its task and then we call toObject to get our user as it was a task before
-             val currTime = System.currentTimeMillis()
-             val post = Post(text,user,currTime)
-             postCollection.document().set(post)
+         try {
+             val currentUSerId = auth.currentUser!!.uid
+             GlobalScope.launch {
+                 val userDao = UserDao()
+                 val user = userDao.getUserById(currentUSerId).await()
+                     .toObject(User::class.java)!! // await will help the code to complete its task and then we call toObject to get our user as it was a task before
+                 val currTime = System.currentTimeMillis()
+                 val post = Post(text, user, currTime)
+                 postCollection.document().set(post)
+             }
+         }catch(e : Exception){
+             Log.e("Error in addPost " , e.toString())
          }
      }
 

@@ -10,4 +10,6 @@
     <string name="google_login">google login</string>
     <string name="user_image">user image</string>
     <string name="like">like</string>
+    <string name="authenticate">Authenticate</string>
+    <string name="logout">LOGOUT</string>
 </resources>

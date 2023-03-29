@@ -51,6 +51,11 @@ class SignInActivity : AppCompatActivity() {
             binding.signInButton.setOnClickListener {
                 signIn()
             }
+            binding.phoneAuth.setOnClickListener {
+                val intent = Intent(this,PhoneActivity::class.java)
+                startActivity(intent)
+            }
+
 
         }
 
@@ -94,6 +99,10 @@ class SignInActivity : AppCompatActivity() {
             val credential = GoogleAuthProvider.getCredential(idToken, null)
             binding.signInButton.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
+            binding.phoneAuth.visibility = View.GONE
+            binding.or.visibility = View.GONE
+            binding.view1.visibility = View.GONE
+            binding.view2.visibility = View.GONE
             GlobalScope.launch(Dispatchers.IO) {
                 val auth = auth.signInWithCredential(credential).await()
                 val user = auth.user
@@ -110,7 +119,7 @@ class SignInActivity : AppCompatActivity() {
                 val usersDao = UserDao()
                 usersDao.addUser(user)
 
-                val mainActivityIntent = Intent(this, MainActivity::class.java)
+                val mainActivityIntent = Intent(this, Fingerprint::class.java)
                 startActivity(mainActivityIntent)
                 finish()
             } else {

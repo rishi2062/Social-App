@@ -33,11 +33,17 @@ class MainActivity : AppCompatActivity(), IPostAdapter {
         adapter = PostAdapter(recyclerViewOptions,this)
         binding.recyclerView.adapter = adapter
 
-
     }
 
     override fun onStart() {
         super.onStart()
+
+        adapter.startListening()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged()
         adapter.startListening()
     }
 
